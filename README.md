@@ -46,7 +46,7 @@ Introduced in .NET 6 and continuously refined through .NET 10, **Minimal APIs** 
 
 ## 🗄️ Database Context: The `Films` Table
 
-This tutorial uses the SQLite database located at [Data/Films.db](file:///Users/martincooper/Documents/github-demo-sites-for-modules/dotnet-minimal-api/Data/Films.db). The database contains a `Films` table created with the following schema:
+This tutorial uses the SQLite database located at [Data/Films.db](Data/Films.db). The database contains a `Films` table created with the following schema:
 
 ```sql
 CREATE TABLE Films (

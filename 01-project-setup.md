@@ -15,7 +15,7 @@ In this step, you will create a new ASP.NET Core Minimal API project targeting *
 3. You should see the `Data/` folder containing `Films.db`.
 
 To open the integrated terminal in VS Code:
-- Press <kbd>Ctrl</kbd> + <kbd>`</kbd> (or <kbd>Cmd</kbd> + <kbd>`</kbd> on macOS).
+- Press <kbd>Ctrl</kbd> + (or <kbd>Cmd</kbd> + <kbd>`</kbd> on macOS).
 - Alternatively, select **Terminal** &rarr; **New Terminal** from the top menu.
 
 Confirm you have the .NET 10 SDK installed by running:
