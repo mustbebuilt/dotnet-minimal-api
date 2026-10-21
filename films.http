@@ -1,0 +1,72 @@
+@baseUrl = http://localhost:5000
+
+### 1. Get All Films
+GET {{baseUrl}}/api/films
+Accept: application/json
+
+### 2. Search Films by Title Keyword (e.g. 'Shawshank')
+GET {{baseUrl}}/api/films?title=Shawshank
+Accept: application/json
+
+### 3. Filter Films by Minimum Stars and Certificate
+GET {{baseUrl}}/api/films?minStars=5&certificate=15
+Accept: application/json
+
+### 4. Get Single Film by ID (Existing: 1)
+GET {{baseUrl}}/api/films/1
+Accept: application/json
+
+### 5. Get Single Film by ID (Non-existent: 99999 -> Expect 404)
+GET {{baseUrl}}/api/films/99999
+Accept: application/json
+
+### 6. Insert a New Film (POST -> Expect 201 Created)
+POST {{baseUrl}}/api/films
+Content-Type: application/json
+
+{
+  "filmTitle": "Interstellar",
+  "filmCertificate": "12A",
+  "filmDescription": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+  "filmImage": "interstellar.jpg",
+  "filmPrice": 4.99,
+  "stars": 5,
+  "releaseDate": "2014-11-07"
+}
+
+### 7. Update an Existing Film (PUT -> Expect 204 NoContent)
+# Replace 69 with the ID returned by POST
+PUT {{baseUrl}}/api/films/69
+Content-Type: application/json
+
+{
+  "filmTitle": "Interstellar (IMAX Edition)",
+  "filmCertificate": "12A",
+  "filmDescription": "Special IMAX edition with bonus space documentary footage.",
+  "filmImage": "interstellar_imax.jpg",
+  "filmPrice": 5.99,
+  "stars": 5,
+  "releaseDate": "2014-11-07"
+}
+
+### 8. Attempt Invalid Insert (Price < 0 -> Expect 400 BadRequest)
+POST {{baseUrl}}/api/films
+Content-Type: application/json
+
+{
+  "filmTitle": "Negative Price Film",
+  "filmCertificate": "PG",
+  "filmDescription": "This should fail validation because price is negative.",
+  "filmImage": "sample.jpg",
+  "filmPrice": -5.00,
+  "stars": 3,
+  "releaseDate": "2024-01-01"
+}
+
+### 9. Delete a Film (DELETE -> Expect 204 NoContent)
+# Replace 69 with the ID to delete
+DELETE {{baseUrl}}/api/films/69
+
+### 10. Verify Deletion (GET -> Expect 404 NotFound)
+GET {{baseUrl}}/api/films/69
+Accept: application/json
